@@ -1,0 +1,43 @@
+.side
+  .side__header
+    %p.side__header__user-name
+      tt
+    %ul.side__header__menu
+      %li.side__header__menu__new-group
+        %a{ href: ''}
+          %i.far.fa-edit
+      %li.side__header__menu__edit
+        %a{ href: ''}
+          %i.fas.fa-cog
+
+
+
+  .groups
+    /each文あとでつける
+    = render partial: "group", locals: {}
+
+
+
+.main
+  .main__header
+    %p.main__header__group-name
+      aa
+    %p.main__header__group-member
+      Member:tt
+    %a{ href: ''}
+      .main__header__edit-button
+      Edit
+  /ここもeach
+  .message
+    = render partial: "message", locals: {}
+
+
+  .form
+    %form{ action: '', method: 'post'}
+      %input.form__text{ placeholder: 'type a message', type: 'text' }
+      %label
+        %span.form__label
+        %i.far.fa-image.fa-lg
+        %input.form__send{ type: 'file'}
+      %input.form__submit{ type: 'submit', value: 'Send'}
+
