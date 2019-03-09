@@ -1,43 +1,48 @@
-.side
-  .side__header
-    %p.side__header__user-name
-      tt
-    %ul.side__header__menu
-      %li.side__header__menu__new-group
-        %a{ href: ''}
-          %i.far.fa-edit
-      %li.side__header__menu__edit
-        %a{ href: ''}
-          %i.fas.fa-cog
+.flash-box
+  グループを編集しました
+.all
+  .side
+    .side__header
+      %p.side__header__user-name
+        tt
+      %ul.side__header__menu
+        %li.side__header__menu__new-group
+          %a{ href: ''}
+            %i.far.fa-edit.my-white
+        %li.side__header__menu__edit
+          %a{ href: ''}
+            %i.fas.fa-cog.my-white
 
 
 
-  .groups
-    /each文あとでつける
-    = render partial: "group", locals: {}
+    .groups
+      /each文あとでつける
+      = render partial: "group", locals: {}
 
 
 
-.main
-  .main__header
-    %p.main__header__group-name
-      aa
-    %p.main__header__group-member
-      Member:tt
-    %a{ href: ''}
-      .main__header__edit-button
-      Edit
-  /ここもeach
-  .message
-    = render partial: "message", locals: {}
+  .main
+    .main__header
+      .main__header__group
+        %p.main__header__group__name
+          aa
+        %p.main__header__group__member
+          Member:tt
+      %a.main__header__edit{ href: ''}
+        Edit
+    /ここもeach
+    .messages
+      = render partial: "message", locals: {}
 
 
-  .form
-    %form{ action: '', method: 'post'}
-      %input.form__text{ placeholder: 'type a message', type: 'text' }
-      %label
-        %span.form__label
-        %i.far.fa-image.fa-lg
-        %input.form__send{ type: 'file'}
-      %input.form__submit{ type: 'submit', value: 'Send'}
+
+    %form.form{ action: '', method: 'post'}
+      .form__new
+        .form__new__input
+          %input.form__new__input__text{ placeholder: 'type a message', type: 'text' }
+          %label.form__new__input__label
+            %span
+              %i.far.fa-image.fa-lg.form__new__input__label__button
+            %input.form__new__input__label__send{ type: 'file'}
+        %input.form__new__submit{ type: 'submit', value: 'Send'}
 

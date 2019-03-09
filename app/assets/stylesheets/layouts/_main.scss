@@ -1,0 +1,66 @@
+.main {
+  width: calc(100vw - 300px);
+  float: left;
+  box-sizing: border-box;
+  &__header {
+    display: flex;
+    background-color: white;
+    border-bottom: solid 1px #eee;
+    height: 100px;
+    box-sizing: border-box;
+    &__group {
+
+      padding: 0 40px ;
+      margin-top: 35px;
+      &__name {
+        color: #333333;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      &__member {
+        @include textBlackSlim();
+      }
+    }
+    &__edit {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 28px;
+      position: absolute;
+      right: 40px;
+      color: $blue;
+      box-sizing: border-box;
+      border: solid 1px;
+      text-decoration: none;
+    }
+  }
+}
+
+.messages {
+  padding: 46px 40px 0;
+  height: calc(100vh - 190px);
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
+
+.message {
+  &__info {
+    display: flex;
+    &__user {
+      font-weight: bold;
+      font-size: 16px;
+      color: $black;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+    &__time {
+      @include textBlackSlim();
+    }
+  }
+  &__text {
+    font-size: 14px;
+    color: $black;
+    margin-bottom: 40px;
+  }
+}

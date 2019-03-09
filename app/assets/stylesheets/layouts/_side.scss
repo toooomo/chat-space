@@ -1,0 +1,59 @@
+.side {
+  width: 300px;
+  background-color: #2f3e51;
+  float: left;
+  &__header {
+    height: 100px;
+    padding: 0 20px ;
+    width: 260px;
+    background-color: #253141;
+    vertical-align:middle;
+    display: table;
+    &__user-name {
+      @include textWhite();
+      font-size: 16px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+    &__menu {
+      float: right;
+      line-height: 100px;
+      display: table-cell;
+      vertical-align: middle;
+
+      &__menu__new-group {
+      }
+      &__menu__edit {
+      }
+    }
+  }
+  ul li {
+  display: inline-block;
+  }
+}
+
+.groups {
+  height: calc(100vh - 100px);
+  padding: 20px 20px 0;
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
+
+.group {
+
+  &__name {
+    @include textWhite();
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  &__latest-message {
+    @include textWhite();
+    font-size: 11px;
+    margin-bottom: 40px;
+  }
+}
+
+.my-white {
+  color: #FFFFFF;
+}

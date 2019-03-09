@@ -1,0 +1,9 @@
+@mixin textBlackSlim() {
+    font-size: 12px;
+    color: #999999;
+}
+
+@mixin textWhite() {
+    font-weight: bold;
+    color: #FFFFFF;
+}
