@@ -41,7 +41,7 @@
 
 
 .group {
-
+  text-decoration: none;
   &__name {
     @include textWhite();
     font-size: 15px;

@@ -1,16 +1,15 @@
-.flash-box
-  グループを編集しました
+
 .all
   .side
     .side__header
       %p.side__header__user-name
-        tt
+        = current_user.name
       %ul.side__header__menu
         %li.side__header__menu__new-group
           %a{ href: ''}
             %i.far.fa-edit.my-white
         %li.side__header__menu__edit
-          %a{ href: ''}
+          = link_to edit_user_path(current_user) do
             %i.fas.fa-cog.my-white
 
 
