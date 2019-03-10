@@ -1,0 +1,19 @@
+.side
+  .side__header
+    %p.side__header__user-name
+      = current_user.name
+    %ul.side__header__menu
+      %li.side__header__menu__new-group
+        = link_to new_group_path do
+          %i.far.fa-edit.my-white
+      %li.side__header__menu__edit
+        = link_to edit_user_path(current_user) do
+          %i.fas.fa-cog.my-white
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
