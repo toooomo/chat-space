@@ -12,7 +12,8 @@
           aa
         %p.main__header__group__member
           Member:tt
-      %a.main__header__edit{ href: ''}
+      %a.main__header__edit
+        = link_to edit_group_path do
         Edit
     /ここもeach
     .messages
