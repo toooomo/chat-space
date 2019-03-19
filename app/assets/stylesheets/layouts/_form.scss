@@ -5,10 +5,11 @@
   background-color: #ddd;
   &__new {
     display: flex;
+    box-sizing: border-box;
     &__input {
       width: 100%;
-      display: flex;
       position: relative;
+      box-sizing: border-box;
       &__text {
         width: 100%;
         height: 50px;
@@ -36,4 +37,10 @@
       margin-left: 15px;
     }
   }
+  .new_message {
+    display: flex;
+    box-sizing: border-box;
+  }
 }
+
+
