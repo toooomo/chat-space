@@ -43,7 +43,7 @@
 
 
     .form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: {id: 'form__new'} do |f|
         .form__new__input
           = f.text_field :content, class: 'form__new__input__text', placeholder: 'type a message'
           = f.label :image, class: 'form__new__input__label' do
