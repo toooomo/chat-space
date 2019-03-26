@@ -50,7 +50,7 @@ $(function(){
       contentType: false
     })
      .done(function(newMessage){
-       var html = buildMassegeHTML(newMessage);
+       var html = buildMessageHTML(newMessage);
        $('.messages').append(html);
        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
        $('form')[0].reset();
