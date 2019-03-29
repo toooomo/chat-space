@@ -1,47 +1,32 @@
 $(function() {
 
   function buildMessagesHTML(message) {
-    if (message.image) {
-      var html = `<div class="message" data-id=${ message.id }>
-                    <div class="message__info">
-                      <div class="message__info__user">
-                        ${ message.user_name }
-                      </div>
-                      <div class="message__info__time">
-                        ${ message.date }
-                      </div>
-                    </div>
-                    <div class="message__text">
-                      <p class="lower-message__content">
-                        ${ message.content }
-                      </p>
-                    </div>
-                    <asset_path src=${message.image} >
-                  </div>`
-                return html;
+    if(message.image) {
+      var image = 'src=${message.image} '
     } else {
-      var html = `<div class="message" data-id=${ message.id }>
-                    <div class="message__info">
-                      <div class="message__info__user">
-                        ${ message.user_name }
-                      </div>
-                      <div class="message__info__time">
-                        ${ message.date }
-                      </div>
+      var image = ''
+    }
+    var html = `<div class="message" data-id=${ message.id }>
+                  <div class="message__info">
+                    <div class="message__info__user">
+                      ${ message.user_name }
                     </div>
-                    <div class="message__text">
-                      <p class="lower-message__content">
-                        ${ message.content }
-                      </p>
+                    <div class="message__info__time">
+                      ${ message.date }
                     </div>
-                  </div>`
+                  </div>
+                  <div class="message__text">
+                    <p class="lower-message__content">
+                      ${ message.content }
+                    </p>
+                    <img class="lower-message__image" ${ image }>
+                  </div>
+                </div>`
               return html;
-              };
-            }
+  }
 
-  $(function() {
-    setInterval(update, 5000);
-  })
+
+  setInterval(update, 5000);
 
   var update = function() {
     if($('.message')[0]) {
@@ -58,7 +43,7 @@ $(function() {
         data: { message: { id: message_id } },
         dataType: 'json'
       })
-      .always(function(message) {
+      .done(function(message) {
         if(message.length >= 1){
           message.forEach(function(message) {
             var html = buildMessagesHTML(message);
@@ -67,6 +52,10 @@ $(function() {
             $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         }
       })
+      .fail(function(){
+        alert('error');
+      });
+      return false;
     }
   }
 })
