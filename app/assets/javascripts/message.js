@@ -1,10 +1,6 @@
 $(function(){
   function buildMessageHTML(message){
-    if(message.image) {
-      var image = `<img src=${message.image}>`
-    } else {
-      var image = ''
-    }
+    var imageHTML = (message.image) ? `<img src=${message.image}>` : '';
     var html = `<div class="message" data-id=${ message.id }>
                   <div class="message__info">
                     <div class="message__info__user">
@@ -18,7 +14,7 @@ $(function(){
                     <p class="lower-message__content">
                       ${ message.content }
                     </p>
-                    ${image}
+                    ${ imageHTML }
                   </div>
                 </div>`
               return html;
@@ -46,4 +42,38 @@ $(function(){
       });
       return false;
   });
+
+
+  setInterval(update, 5000);
+
+  var update = function() {
+    if($('.message')[0]) {
+      var message_id = $('.message:last').data('id');
+    } else {
+      var message_id = 0
+    }
+
+
+    if(document.URL.match('/messages')){
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: { message: { id: message_id } },
+        dataType: 'json'
+      })
+      .done(function(message) {
+        if(message.length >= 1){
+          message.forEach(function(message) {
+            var html = buildMessagesHTML(message);
+            $('.messages').append(html);
+          })
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        }
+      })
+      .fail(function(){
+        alert('error');
+      });
+      return false;
+    }
+  }
 });
