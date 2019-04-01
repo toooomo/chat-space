@@ -76,6 +76,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'turbolinks', '~> 5'
+gem 'jquery-turbolinks'
 group :production do
   gem 'unicorn', '5.4.1'
 end
