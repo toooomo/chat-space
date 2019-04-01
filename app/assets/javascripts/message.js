@@ -43,6 +43,7 @@ $(function(){
       return false;
   });
 
+  $(document).on('turbolinks:load', function() { });
 
   setInterval(update, 5000);
 
