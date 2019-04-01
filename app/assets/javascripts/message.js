@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
 
   setInterval(update, 5000);
 
-  var update = function() {
+  function update() {
     var message_id = ($('.message')[0]) ? $('.message:last').data('id') : 0
     if(document.URL.match('/messages')){
       $.ajax({
@@ -59,7 +59,7 @@ $(document).on('turbolinks:load', function() {
       .done(function(message) {
         if(message.length >= 1){
           message.forEach(function(message) {
-            var html = buildMessagesHTML(message);
+            var html = buildMessageHTML(message);
             $('.messages').append(html);
           })
             $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
