@@ -47,7 +47,7 @@ $(function(){
   setInterval(update, 5000);
 
   var update = function() {
-    var message_id = ($('.message')[0]) ? $('.message:last').data('id') : var message_id = 0
+    var message_id = ($('.message')[0]) ? $('.message:last').data('id') : 0
     if(document.URL.match('/messages')){
       $.ajax({
         url: location.href,
